@@ -1,0 +1,23 @@
+﻿@page "{handler?}"
+@model HtmxCookbook.Pages.DeleteRow.IndexModel
+@section Styles {
+    <link rel="stylesheet" href="~/@(nameof(HtmxCookbook)).styles.css" />
+}
+
+                                                                                                                                                                                                                                                                                     @if (Model?.Contacts?.Count() > 0){
+<table class="table delete-row-example">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+        <tbody hx-confirm="Are you sure?" hx-target="closest tr" hx-headers='{"RequestVerificationToken": "@Model.RequestToken"}' hx-swap="outerHTML swap:1s">
+        @foreach(var contact in Model.Contacts){
+            <partial name="_TableRow" model="@contact" />
+        }
+    </tbody>
+</table>
+}

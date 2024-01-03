@@ -1,0 +1,12 @@
+﻿@page "{handler?}"
+@model HtmxCookbook.Pages.ClickToLoad.IndexModel
+@{
+    var currentPage = ViewData["Page"];
+}
+
+<table>
+    <thead><tr><th>Name</th><th>Email</th><th>ID</th></tr></thead>
+    <tbody>
+        <partial name="_ClickToLoadButton" model="@Model.Contacts"  />
+    </tbody>
+</table>

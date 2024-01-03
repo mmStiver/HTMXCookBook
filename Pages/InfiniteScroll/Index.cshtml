@@ -1,0 +1,12 @@
+﻿@page "{handler?}"
+@model HtmxCookbook.Pages.InfiniteScroll.IndexModel
+@{
+    var currentPage = ViewData["Page"];
+}
+
+<table>
+    <thead><tr><th>Name</th><th>Email</th><th>ID</th></tr></thead>
+    <tbody>
+        <partial name="_PageResult" model="@Model.Contacts"  />
+    </tbody>
+</table>

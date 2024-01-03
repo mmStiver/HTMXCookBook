@@ -1,0 +1,33 @@
+﻿@page
+@model HtmxCookbook.Pages.BulkUpdate.BulkUpdate
+@section Styles {
+    <link rel="stylesheet" href="~/@(nameof(HtmxCookbook)).styles.css" />
+}
+
+
+<div hx-include="#checked-contacts" hx-target="#tbody">
+    <button class="btn" hx-put="/BulkUpdate/BulkUpdate?handler=activate">Activate</button>
+    <button class="btn" hx-put="/BulkUpdate/BulkUpdate?handler=deactivate">Deactivate</button>
+</div>
+
+@if (Model.ContactTableRows != null && Model.ContactTableRows.Count() > 0)
+{
+
+<form id="checked-contacts">
+    @Html.AntiForgeryToken()
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+            <tbody id="tbody">
+        <partial name="BulkUpdate/_tbody" model="@Model.ContactTableRows" />
+    </tbody>
+    </table>
+</form>
+}

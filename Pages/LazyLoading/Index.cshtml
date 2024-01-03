@@ -1,0 +1,10 @@
+﻿@page
+@model HtmxCookbook.Pages.LazyLoading.IndexModel
+@section Styles {
+    <link rel="stylesheet" href="~/@(nameof(HtmxCookbook)).styles.css" />
+}
+
+
+<div hx-get="/LazyLoading/Index?handler=graph" hx-trigger="load">
+    <img alt="Result loading..." class="htmx-indicator" width="150" src="https://htmx.org/img/bars.svg" />
+</div>

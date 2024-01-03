@@ -1,0 +1,5 @@
+﻿@page "{handler?}"
+@model HtmxCookbook.Pages.Tabs.IndexModel
+@{
+}
+<div id="tabs" hx-get="/Tabs/tab1" hx-trigger="load delay:100ms" hx-target="#tabs" hx-swap="innerHTML"></div>
